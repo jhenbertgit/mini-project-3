@@ -35,9 +35,9 @@ const create = async (req, res) => {
     ]);
     res
       .status(200)
-      .send(
-        `${rows.affectedRows} sale datum successfully added with id: ${rows.insertId}`
-      );
+      .json({
+        msg: `${rows.affectedRows} sale datum successfully added with id: ${rows.insertId}`,
+      });
   } catch (error) {
     console.error(error);
     res.status(500).send("Unable to add sales. Please try again later.");

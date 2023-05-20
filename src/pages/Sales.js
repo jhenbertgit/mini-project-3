@@ -38,7 +38,7 @@ const Sales = () => {
     };
 
     try {
-      await fetch(api_url, {
+      const response = await fetch(api_url, {
         method: "POST",
         mode: "cors",
         body: JSON.stringify(sales),
@@ -47,8 +47,9 @@ const Sales = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
+      const { msg } = await response.json();
       setSnackbar({
-        children: "Sales data successfully added",
+        children: msg,
         severity: "success",
       });
     } catch (error) {

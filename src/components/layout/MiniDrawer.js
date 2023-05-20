@@ -187,7 +187,13 @@ const MiniDrawer = (props) => {
         <List>
           <nav id="logout">
             {["logout"].map((text, index) => (
-              <NavLink to="/sign-in" key={text}>
+              <NavLink
+                key={text}
+                onClick={() => {
+                  localStorage.clear();
+                  window.location.href = "/";
+                }}
+              >
                 <ListItem disablePadding sx={{ display: "block" }}>
                   <ListItemButton
                     sx={{

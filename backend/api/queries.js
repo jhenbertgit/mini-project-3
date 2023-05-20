@@ -1,3 +1,15 @@
+const createCustomersTable =
+  "CREATE TABLE IF NOT EXISTS customers(customer_id INT PRIMARY KEY AUTO_INCREMENT, firstname VARCHAR(50), lastname VARCHAR(50), address VARCHAR(150), city VARCHAR(50), zip VARCHAR(50), email VARCHAR(50), phone VARCHAR(15)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
+const createProductsTable =
+  "CREATE TABLE IF NOT EXISTS products(product_id INT PRIMARY KEY AUTO_INCREMENT, code VARCHAR(6), description VARCHAR(255), unit_price VARCHAR(15)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
+const createSalesTable =
+  "CREATE TABLE IF NOT EXISTS sales(sale_id INT PRIMARY KEY AUTO_INCREMENT, customer_name VARCHAR(15), date_of_sale DATETIME) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
+const createUsersTable =
+  "CREATE TABLE IF NOT EXISTS users(user_id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(10) NOT NULL, firstname VARCHAR(20) NOT NULL, lastname VARCHAR(20) NOT NULL, email_add VARCHAR(50) NOT NULL, password CHAR(60) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
 //customers
 const selectAllCustomers = "SELECT * FROM customers";
 const selectCustomersById = "SELECT * FROM customers WHERE customer_id=?";
@@ -48,4 +60,8 @@ module.exports = {
   removeSales,
   selectAllUsers,
   insertUsers,
+  createCustomersTable,
+  createProductsTable,
+  createSalesTable,
+  createUsersTable,
 };
